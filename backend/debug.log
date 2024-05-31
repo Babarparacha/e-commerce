@@ -1,0 +1,6 @@
+Raw cart JSON: "[{\"id\":\"1\",\"name\":\"cord1\",\"price\":\"5000\",\"image\":\"cord1.jpg\",\"quantity\":2},{\"id\":\"8\",\"name\":\"cord5\",\"price\":\"9000\",\"image\":\"cord5.jpeg\",\"quantity\":2}]"
+Decoded cart array: [{"id":"1","name":"cord1","price":"5000","image":"cord1.jpg","quantity":2},{"id":"8","name":"cord5","price":"9000","image":"cord5.jpeg","quantity":2}]
+Raw cart JSON: "[{\"id\":\"1\",\"name\":\"cord1\",\"price\":\"5000\",\"image\":\"cord1.jpg\",\"quantity\":2},{\"id\":\"8\",\"name\":\"cord5\",\"price\":\"9000\",\"image\":\"cord5.jpeg\",\"quantity\":2}]"
+Decoded cart array: [{"id":"1","name":"cord1","price":"5000","image":"cord1.jpg","quantity":2},{"id":"8","name":"cord5","price":"9000","image":"cord5.jpeg","quantity":2}]
+Raw cart JSON: "[{\"id\":\"1\",\"name\":\"cord1\",\"price\":\"5000\",\"image\":\"cord1.jpg\",\"quantity\":2},{\"id\":\"8\",\"name\":\"cord5\",\"price\":\"9000\",\"image\":\"cord5.jpeg\",\"quantity\":2}]"
+Decoded cart array: [{"id":"1","name":"cord1","price":"5000","image":"cord1.jpg","quantity":2},{"id":"8","name":"cord5","price":"9000","image":"cord5.jpeg","quantity":2}]

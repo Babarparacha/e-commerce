@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>add product</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body class="animsition">
+
+    <!-- Header -->
+    <header>
+        <!-- Header desktop -->
+        <div class="container-menu-desktop">
+            <!-- Topbar -->
+
+
+            <div class="wrap-menu-desktop">
+                <nav class="limiter-menu-desktop container">
+
+                    <!-- Logo desktop -->
+                    <a href="#" class="logo">
+                        <img src="images/icons/logo-01.png" alt="IMG-LOGO">
+                    </a>
+
+                    <!-- Menu desktop -->
+                    <div class="menu-desktop">
+                        <ul class="main-menu">
+                            <li class="active-menu">
+                                <a href="AdminDashboard.html">Home</a>
+
+                            </li>
+
+                            <li>
+                                <a href="allproduct.html">All product</a>
+                            </li>
+                            <li>
+                                <a href="addproduct.html">Add product</a>
+                            </li>
+
+                            <li class="label1" data-label1="hot">
+                                <a href="newOrder.html">New Orders</a>
+                            </li>
+
+                            <li>
+                                <a href="customer.html">customer complaint</a>
+                            </li>
+
+
+
+                            <li>
+                                <a onclick="logout()">Log Out</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </nav>
+            </div>
+        </div>
+
+        <!-- Header Mobile -->
+        <div class="wrap-header-mobile">
+            <!-- Logo moblie -->
+            <div class="logo-mobile">
+                <a href="AdminDashboard.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+            </div>
+
+            <!-- Button show menu -->
+            <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </div>
+        </div>
+
+
+        <!-- Menu Mobile -->
+        <div class="menu-mobile">
+            <ul class="main-menu-m">
+                <li>
+                    <a href="AdminDashboard.html">Home</a>
+
+                    <span class="arrow-main-menu-m">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </span>
+                </li>
+
+                <li>
+                    <a href="addproduct.html">Add product</a>
+                </li>
+                <li>
+                    <a href="allproduct.html">All product</a>
+                </li>
+
+                <li>
+                    <a href="newOrder.html">New Orders</a>
+                </li>
+
+                <li>
+                    <a href="customer.html">customer Complaint</a>
+                </li>
+
+                <li>
+                    <a onclick="logout()">Log Out</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Modal Search -->
+        <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+            <div class="container-search-header">
+                <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+                    <img src="images/icons/icon-close2.png" alt="CLOSE">
+                </button>
+
+                <form class="wrap-search-header flex-w p-l-15">
+                    <button class="flex-c-m trans-04">
+                        <i class="zmdi zmdi-search"></i>
+                    </button>
+                    <input class="plh3" type="text" name="search" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container-xxl py-5" style="margin-top: 100px;">
+        <h1 class="text-center mb-5 wow fadeInUp">New Orders</h1>
+
+        <div class="container">
+            <div class="section mt-2">
+                <div class="form-group searchbox" style="margin-top: 20px;">
+                    <input type="text" id="myInput" onkeyup="searchTable(this.value)" class="form-control"
+                        placeholder="Search...">
+                    <i class="input-icon icon ion-ios-search"></i>
+                </div>
+                <div class="section mt-2">
+
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table responsive" id="table">
+
+                                <thead>
+                                    <tr style="font-size: 11px;">
+                                        <th>#</th>
+                                        <th>customer name</th>
+                                        <th>customer cell</th>
+                                        <th>customer address</th>
+                                        <th>Product name</th>
+                                        <th>Price</th>
+                                        <th>Image</th>
+                                        <th>Quantity</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Dispatched</th>
+                                        <th>delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="showData">
+
+                                </tbody>
+                            </table>
+                        </div>        
+                    </div>
+                    <div id="pagination" class="mt-2" style="display:flex; justify-content: flex-start;">
+                        <button class="btn btn-secondary" onclick="previousPage()">Previous</button>
+                            <span id="page" class="mx-2">Page 1</span>
+                        <button class="btn btn-secondary" onclick="nextPage()">Next</button>
+                </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/slick/slick.min.js"></script>
+    <script src="js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/parallax100/parallax100.js"></script>
+    <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+
+    <!--===============================================================================================-->
+    <script src="vendor/isotope/isotope.pkgd.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/sweetalert/sweetalert.min.js"></script>
+
+    <!--===============================================================================================-->
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            getData();
+
+        })
+        var id = localStorage.getItem("userId");
+        var userPhone = localStorage.getItem("userContact");
+        var userType = localStorage.getItem("type");
+        if (id == "" || userPhone == undefined) {
+            window.open("./index.html", '_self');
+        }
+
+        function logout() {
+            window.localStorage.clear();
+            window.open("./adminLogin.html", '_self');
+        }
+
+        const itemsPerPage3 = 5; // Number of items per page
+            let currentPage3 = 1; // Current page number
+            const pageElement3 = document.getElementById('page');
+            var allUsers='';
+        // fucntion for display all products 
+        function getData() {
+            $('#showData').empty();
+            var getData = "getData"
+            $.ajax({
+                type: "POST",
+                url: "./backend/newOrder.php",
+                data: {
+                    "getData": getData,
+
+                },
+                success: function (data) {
+                    allUsers=data;
+                    const startIndex2 = (currentPage3 - 1) * itemsPerPage3;
+                    const endIndex2 = startIndex2 + itemsPerPage3;
+                     data = allUsers.slice(startIndex2, endIndex2);
+                    var j = 0;
+                    if (data.code == "400") {
+                        $('#showData').append('<h3 style="color:red"> Order Will Appear Here</h3>');
+                        Swal.fire({
+                            title: "No Order",
+                            icon: "error"
+                        });
+                    }
+                    else {
+
+                        $.each(data, function getData(i, item) {
+
+                            var id = data[i].id;
+                            var product_id = data[i].product_id;
+                            var customer_name = data[i].customer_name;
+                            var customer_cell = data[i].customer_cell;
+                            var customer_address = data[i].customer_address;
+                            var product_name = data[i].product_name;
+                            var product_price = data[i].product_price;
+                            var product_image = data[i].product_image;
+                            var quantity_product = data[i].quantity_product;
+                            var status = data[i].status;
+                            var created_on = data[i].created_on;
+                            j++;
+                            if (status == "new") {
+                                var html = '<tr style="font-size: 17px; font-weight: bold;">';
+                                html += '<td>' + j + '</td>';
+                                html += '<td>' + customer_name + '</td>';
+                                html += '<td>' + customer_cell + '</td>';
+                                html += '<td>' + customer_address + '</td>';
+                                html += '<td>' + product_name + '</td>';
+                                html += '<td>' + product_price + '</td>';
+                                html += '<td ><img src="./backend/productImages/' + product_image + '" style="height:50px" /></td>';
+                                html += '<td>' + quantity_product + '</td>';
+                                html += '<td>' + created_on + '</td>';
+                                html += '<td style="color:red">' + status + '</td>'
+                                html += '<td><button class="btn btn-success"  onclick="actionOnProduct(\'' + id + '\',\'' + quantity_product + '\',\'' + quantity_product + '\', \'delivered\')">delivered</button></td>';
+                                html += '<td><button class="btn btn-danger" onclick="actionOnProduct(\'' + id + '\',\'' + product_id + '\',\'' + quantity_product + '\', \'remove\')">Remove Order</button></td>';
+
+                            }
+                            else {
+
+                                var html = '<tr style="font-size: 17px; font-weight: bold;">';
+                                html += '<td>' + j + '</td>';
+                                html += '<td>' + customer_name + '</td>';
+                                html += '<td>' + customer_cell + '</td>';
+                                html += '<td>' + customer_address + '</td>';
+                                html += '<td>' + product_name + '</td>';
+                                html += '<td>' + product_price + '</td>';
+                                html += '<td ><img src="./backend/productImages/' + product_image + '" style="height:50px" /></td>';
+                                html += '<td>' + quantity_product + '</td>';
+                                html += '<td>' + created_on + '</td>';
+                                html += '<td style="color:green">' + status + '</td>'
+                                html += '<td><button class="btn btn-success"  ">-------------------</button></td>';
+                                html += '<td><button class="btn btn-danger" >-------------------</button></td>';
+
+
+                            }
+
+
+                            $('#showData').append(html);
+
+                        })
+                        pageElement3.textContent = `Page ${currentPage3}`;
+                    }
+                }
+            });
+        }
+
+
+        // ends here 
+        function previousPage() {
+                if (currentPage3 > 1) {
+                    currentPage3--;
+                    getData();
+                }
+            }
+            // Function to navigate to the next page
+            function nextPage() {
+                const maxPage2 = Math.ceil(allUsers.length / itemsPerPage3);
+                if (currentPage3 < maxPage2) {
+                    currentPage3++;
+                    getData();
+                }
+            }
+
+
+        //         // here we add or remove product from db 
+        function actionOnProduct(id, product_id, quantity, type) {
+            $.ajax({
+                type: "POST",
+                url: "./backend/orderAction.php",
+                data: {
+                    "id": id,
+                    "product_id": product_id,
+                    "quantity": quantity,
+                    "type": type
+                },
+                success: function (data) {
+
+                    if (data == "200") {
+                        Swal.fire({
+                            title: " Add to Delivered",
+                            icon: "success"
+                        });
+                        getData();
+                    }
+                    if (data == "201") {
+                        Swal.fire({
+                            title: " Product Remove",
+                            icon: "success"
+                        });
+                        getData();
+                    }
+                    if (data == "401") {
+                        Swal.fire({
+                            title: " Error While  Product Remove",
+                            icon: "error"
+                        });
+                    }
+
+                }
+            });
+        }
+
+
+
+        // function to search product 
+        function searchTable(searchInput) {
+            // Declare variables
+            var input, filter, table, tr, td, i;
+            // searchInput = document.getElementById("searchBus");
+            filter = searchInput.toUpperCase();
+            tables = document.querySelectorAll(".table");
+
+            tables.forEach(function (table) {
+                tr = table.getElementsByTagName("tr");
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 1; i < tr.length; i++) {
+                    if (!tr[i].classList.contains('header')) {
+                        td = tr[i].getElementsByTagName("td"),
+                            match = false;
+                        for (j = 0; j < td.length; j++) {
+                            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                match = true;
+                                break;
+                            }
+                        }
+                        if (!match) {
+                            tr[i].style.display = "none";
+                        } else {
+                            tr[i].style.display = "";
+                        }
+                    }
+                }
+            });
+        }
+
+
+    </script>
+
+
+
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

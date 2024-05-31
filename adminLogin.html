@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header_section" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ">
+        <div class="header_top">
+            <div class="container">
+                <div class="contact_nav">
+                    <a href="./index.html">
+                        <img src="images/backButton.png" alt="" height="50px">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-3 col-xl-5" style="display: flex; justify-content: end;">
+                    <img src="images/cord.jpg" class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                        <p class="lead fw-normal mb-0 me-3">E-Store</p>
+                    </div>
+                    <div class="divider d-flex align-items-center my-4">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="text" id="username" class="form-control form-control-lg"
+                            placeholder="Enter Phone Number" />
+                        <label class="form-label" for="username">Phone Number</label>
+                    </div>
+                    <div class="form-outline mb-3">
+                        <input type="password" id="password" class="form-control form-control-lg"
+                            placeholder="Enter password" />
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                    </div>
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <input type="submit" class="btn btn-primary btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;" value="Login" onclick="login()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let login = async (e) => {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            let response = await fetch('./backend/login.php', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                }),
+            });
+            let data = await response.json();
+            if (data.length > 0) {
+                let userData = data[0];
+                let userId = userData.id;
+                let userContact = userData.phone;
+           
+                let userType = userData.type;
+                localStorage.setItem("userId", userId);
+                localStorage.setItem("userContact", userContact);
+                localStorage.setItem("userType", userType);
+
+                document.getElementById('username').value="";
+                document.getElementById('password').value="";
+                if (userData.code == '200') {
+                    Swal.fire({
+                        title: "Logged In",
+                        icon: "success"
+                    });
+                    setTimeout(() => {
+                        window.open("./AdminDashboard.html","_self");
+                        
+                    }, 2000);
+              
+                }
+                if (data == '420') {
+                    Swal.fire({
+                        title: "Wrong Credentials",
+                        icon: "error"
+                    });
+                }
+
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>
